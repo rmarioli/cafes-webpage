@@ -1,0 +1,108 @@
+{% include "header.html" %}
+
+<!-- Black Background for Header -->
+<style>
+  #mainNav {
+    background-color: #000000 !important;
+  }
+
+  #mainNav .navbar-brand,
+  #mainNav .nav-link {
+    color: white !important;
+  }
+
+  #mainNav .navbar-toggler {
+    color: white !important;
+  }
+
+  .cafe-card img {
+    height: 220px;
+    object-fit: cover;
+  }
+
+  .feature-badge {
+    margin-right: 5px;
+    margin-bottom: 5px;
+  }
+</style>
+
+<br><br><br>
+
+<!-- Page Header -->
+<div class="container mt-4 mb-5">
+  <h1 class="display-4 fw-bold text-center">
+    {{ locations }}
+  </h1>
+</div>
+
+<!-- Cafes Content -->
+<div class="container">
+  <div class="row g-4">
+
+    {% for cafe in all_cafes %}
+
+    <div class="col-lg-4 col-md-6">
+      <div class="card cafe-card shadow-sm h-100">
+
+        <img src="{{ cafe.img_url }}"
+             class="card-img-top"
+             alt="{{ cafe.name }}">
+
+        <div class="card-body d-flex flex-column">
+
+          <h3 class="card-title">
+            {{ cafe.name }}
+          </h3>
+
+          <p class="mb-2">
+            <strong>Seats:</strong> {{ cafe.seats }}
+          </p>
+
+          <p class="mb-3">
+            <strong>Coffee Price:</strong> {{ cafe.coffee_price }}
+          </p>
+
+          <div class="mb-3">
+
+            {% if cafe.has_wifi %}
+              <span class="badge bg-success feature-badge">WiFi</span>
+            {% endif %}
+
+            {% if cafe.has_sockets %}
+              <span class="badge bg-primary feature-badge">Sockets</span>
+            {% endif %}
+
+            {% if cafe.has_toilet %}
+              <span class="badge bg-secondary feature-badge">Toilet</span>
+            {% endif %}
+
+            {% if cafe.can_take_calls %}
+              <span class="badge bg-dark feature-badge">Calls Friendly</span>
+            {% endif %}
+
+          </div>
+
+          <div class="mt-auto">
+            <a href="{{ cafe.map_url }}"
+               target="_blank"
+               class="btn btn-outline-dark w-100">
+              View on Maps
+            </a>
+            <a href="{{ url_for('delete', cafe_id=cafe.id) }}"
+               class="btn btn-outline-danger">
+              Delete
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+
+  </div>
+</div>
+
+<br><br>
+
+{% include "footer.html" %}

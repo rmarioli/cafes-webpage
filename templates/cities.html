@@ -1,0 +1,37 @@
+{% include "header.html" %}
+
+<!-- Black Background for Header - Only on this page -->
+<style>
+  #mainNav {
+    background-color: #000000 !important;
+  }
+  #mainNav .navbar-brand,
+  #mainNav .nav-link {
+    color: white !important;
+  }
+  #mainNav .navbar-toggler {
+    color: white !important;
+  }
+</style>
+
+<br><br><br>
+<!-- Page Header-->
+<div class ="container mt-3">
+  <h1>CITIES</h1><br>
+</div>
+
+<!-- Main Content-->
+<main class="mb-4">
+  <div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        {% for location in loc %}
+          <a href="{{ url_for('show_cafes', cafe_loc=location) }}">{{location}}</a>
+          <hr class="my-4" />
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %}

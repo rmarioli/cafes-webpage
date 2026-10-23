@@ -1,0 +1,77 @@
+{% include "header.html" %}
+
+<!-- Page Header-->
+<header
+  class="masthead"
+  style="background-image: url('https://imgs.search.brave.com/tHiym3mWf6Xq3tT4YXSRrriErS_Hb8BafSm5uqc-RGc/rs:fit:500:0:1:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMucmVzdGF1cmFu/dGZ1cm5pdHVyZS5u/ZXQvZHByXzEuMCxm/X2F1dG8scV9hdXRv/L3JmbmV0L21lZGlh/L2NvbnRlbnR0eXBl/L2NhZmVfY293b3Jr/aW5nLmpwZw')"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Co-work, Everywhere</h1>
+          <span class="subheading">From coffee shops to hotel lobbies, discover everyday places to work and connect.</span>
+          <a class="btn btn-secondary text-uppercase mt-5" href="#!">Explore Bs As</a><br>
+          <a class="btn btn-link" href="{{ url_for('cities') }}" style="color: white; text-decoration: underline;">Explore all cities</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-lg-11 col-xl-10">
+
+      <!-- Post preview-->
+
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+          <div class="feature col">
+            <div
+              class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3"
+            >
+                  <i class="bi bi-laptop"></i>
+              </div>
+              <h3 class="fs-2 text-body-emphasis">Be Productive</h3>
+              <p>Find venues with reliable Wi-Fi, ample power sockets, and comfy seating areas. </p>
+          </div>
+          <div class="feature col">
+              <div
+                class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3"
+              >
+                  <i class="bi bi-people-fill"></i>
+              </div>
+              <h3 class="fs-2 text-body-emphasis">Feel Welcome</h3>
+              <p>Discover the best times to work, based on community data.</p>
+          </div>
+          <div class="feature col">
+              <div
+                class="feature-icon d-inline-flex align-items-center justify-content-center fs-2 mb-3"
+              >
+                  <i class="bi bi-lightbulb-fill"></i>
+              </div>
+              <h3 class="fs-2 text-body-emphasis">Stay Inspired</h3>
+              <p>Uncover new places with laid-back ambiance, and friendly vibes.</p>
+          </div>
+      </div>
+
+      <hr><br>
+        <p>LaptopFriendly partners with local venues that appreciate and support the remote worker culture.<br>All locations are carefully inspected and manually approved by our curation team.</p>
+      <br><hr>
+
+      <!-- New Post -->
+      <div class="d-flex justify-content-end mb-4">
+      <!-- Adding new posts -->
+        <a
+          class="btn btn-primary float-right"
+          href="{{ url_for('addcity') }}"
+          >Add new cafe</a
+        >
+      </div>
+
+      <!-- Pager-->
+    </div>
+  </div>
+</div>
+
+{% include "footer.html" %}
